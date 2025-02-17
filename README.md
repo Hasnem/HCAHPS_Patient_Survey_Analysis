@@ -1,99 +1,154 @@
 # HCAHPS Patient Satisfaction Analysis (2014–2023)
 
-This repository explores Hospital Consumer Assessment of Healthcare Providers and Systems (**HCAHPS**) patient satisfaction data across U.S. hospitals from **2014 to 2023**.
+This repository analyzes **HCAHPS (Hospital Consumer Assessment of Healthcare Providers and Systems)** patient satisfaction data across U.S. hospitals from **2014 to 2023**, identifying trends, key drivers, and the impact of COVID-19 on hospital ratings.
 
 ---
 
-## Table of Contents
+## 📌 Table of Contents  
 1. [Overview](#overview)  
 2. [Data Sources](#data-sources)  
 3. [Project Workflow](#project-workflow)  
-4. [Key Features](#key-features)  
-5. [Technologies](#technologies)  
+4. [Key Insights](#key-insights)  
+5. [Technologies & Methods](#technologies-methods)  
 6. [Use Cases](#use-cases)  
 
 ---
 
 <a id="overview"></a>
-## 1. Overview
+## 1. Overview  
 
-This analysis examines **HCAHPS (Hospital Consumer Assessment of Healthcare Providers and Systems)** patient satisfaction data from **2014 to 2023**. 
+This analysis explores **HCAHPS patient satisfaction trends** from **2014 to 2023**, focusing on **hospital performance, key drivers of patient experience, and the impact of COVID-19**.
 
-- **Purpose**: Identify trends in patient satisfaction, uncover pandemic impacts, and determine the strongest predictors of hospital ratings.  
-- **Key Findings**:  
-  - **Care Transition**, **Quietness**, and **Cleanliness** most strongly influence the Overall Hospital Rating.  
-  - **Communication about Medicines** consistently underperforms, especially during COVID-19.  
-  - Average Top-box scores dipped by ~2–3% during 2021–2022, but began recovering in 2023.
+### 🔹 Project Goals  
+✔️ Identify **long-term trends** in patient satisfaction scores.  
+✔️ Assess **COVID-19's impact** on key measures.  
+✔️ Determine **the strongest predictors** of hospital ratings.  
 
-You can also explore an **interactive dashboard** showcasing these insights and trends, and check out the **source code** for deeper analysis.
+### 🔹 Key Findings  
+- **Top Drivers of Patient Satisfaction**:  
+  - 📈 **Care Transition**, **Quietness**, and **Cleanliness** have the **strongest influence** on Overall Hospital Rating.  
+  - ⚠️ **Communication About Medicines** remains the **weakest-performing measure**, particularly during COVID-19.  
+
+- **Pandemic Impact (2021–2022):**  
+  - 📉 **Average hospital ratings declined by ~2–3%** but showed signs of recovery in 2023.  
+  - 📊 **Certain states improved** despite nationwide declines, highlighting regional differences in hospital response.
+
+### 🔹 Interactive Dashboard & Code  
+Explore **real-time visualizations** in our **interactive dashboard** and **Jupyter Notebook analysis**.
 
 ---
 
 <a id="data-sources"></a>
-## 2. Data Sources
-1. **Maven Analytics Data Playground**  
-   - National & state-level HCAHPS data from 2013 to 2022.
+## 2. Data Sources  
 
-2. **CMS HCAHPS (Hospital Compare) Archives**  
-   - The last available date (2023) used to update the Maven dataset.
+1️⃣ **2014–2022 Data**: [Maven Analytics Data Playground](https://mavenanalytics.io/data-playground)  
+2️⃣ **2023 Data**: [CMS HCAHPS (Hospital Compare) Archives](https://data.cms.gov/provider-data/archived-data/hospitals)  
 
-**Data Processing**:  
-- All data was merged in `data_processor.ipynb` to create a final comprehensive dataset (2013–2023).
+### 🔹 Data Processing  
+- All datasets were merged, cleaned, and processed using **`data_processor.ipynb`**.  
+- The final dataset was used in the **analysis notebook (`HCAHPS Patient Survey Analysis.ipynb`)**.  
 
 ---
 
 <a id="project-workflow"></a>
-## 3. Project Workflow
+## 3. Project Workflow  
 
-1. **Data Merging**:  
-   - `data_processor.ipynb` merges 2013–2022 data from Maven Analytics with 2023 CMS HCAHPS data.
+📌 **Step 1: Data Merging & Cleaning**  
+- Combined multiple datasets to ensure **consistency** across years.  
 
-2. **Exploratory Data Analysis (EDA)**:  
-   - Identified trends in Top-box, Middle-box, and Bottom-box distributions.  
-   - Analyzed how COVID-19 impacted specific measures like **Communication with Doctors**, **Responsiveness**, etc.
+📌 **Step 2: Exploratory Data Analysis (EDA)**  
+- **Boxplots** and **trend analysis** for Bottom-box, Middle-box, and Top-box responses.  
+- **COVID-19 impact analysis** on patient experience scores.  
 
-3. **Modeling & Insights**:  
-   - Lasso, Ridge, and ElasticNet models used to predict Overall Hospital Rating (R² ~ 0.93+).  
-   - SHAP analysis reveals the most significant drivers (e.g., **Care Transition**, **Cleanliness**, **Quietness**).
+📌 **Step 3: Statistical & Predictive Modeling**  
+- **Hypothesis Testing (T-tests)** confirmed that COVID-19 caused a **statistically significant** drop in scores.  
+- **Variance Inflation Factor (VIF) Analysis** ensured no severe multicollinearity in predictors.  
+- **Regression Models (Lasso, Ridge, ElasticNet)** predicted Overall Hospital Ratings with **R² > 0.93**.  
+- **SHAP Analysis** explained model-driven insights.  
 
-4. **Visualization & Reporting**:  
-   - `HCAHPS Patient Survey Analysis.ipynb` presents final results with Plotly and Matplotlib figures.  
-   - Exported HTML versions (with and without code) to ensure Plotly graphs display correctly.
-
----
-
-<a id="key-features"></a>
-## 4. Key Features
-
-- **Comprehensive Trends (2014–2023)**:  
-  Yearly national averages, measure-level trends, and boxplot distributions.
-
-- **Pandemic Impact Analysis**:  
-  Comparison of pre- and post-COVID performance, highlighting a 2–3% score decline in 2021–2022.
-
-- **Driver Identification**:  
-  Advanced regression (Lasso, ElasticNet) & SHAP to pinpoint top factors influencing Overall Hospital Rating.
-
-- **State Comparisons**:  
-  Detailed breakdown of which states improved or declined, including interactive charts.
+📌 **Step 4: Visualization & Reporting**  
+- **Matplotlib, Seaborn, and Plotly** for trend visualizations.  
+- Exported **interactive reports** to HTML for better accessibility.  
 
 ---
 
-<a id="technologies"></a>
-## 5. Technologies
+<a id="key-insights"></a>
+## 4. Key Insights  
 
-- **Python**: Pandas, NumPy, Scikit-learn for data processing & modeling  
-- **Matplotlib, Seaborn, Plotly**: Visualizing trends and interactive dashboards  
-- **SHAP**: Interpreting feature importance in gradient boosting and linear models  
-- **Jupyter Notebooks**: Analysis, EDA, and reporting environment  
+🔹 **Overall Hospital Rating Trends (2014–2023)**  
+- **Stable at ~70–72%** pre-pandemic.  
+- **Declined by ~2–3% in 2021–2022** due to COVID-19 disruptions.  
+- **Partial recovery in 2023** as hospitals adapted to post-pandemic conditions.  
+
+🔹 **State-Level Performance Variations**  
+- **Delaware & Hawaii** saw the **steepest declines** (>3%).  
+- **North Dakota & Montana** improved despite the pandemic.  
+- **State-level policies & healthcare response influenced trends.**  
+
+🔹 **Most Influential Features in Predicting Hospital Ratings**  
+| Feature | Impact |
+|---------|--------|
+| ✅ Care Transition | **Strongest positive driver** |
+| ✅ Quietness | **Highly significant** |
+| ✅ Cleanliness | **High importance** |
+| ❌ Communication About Medicines | **Weakest performer** |
+| ❗ Responsiveness of Hospital Staff | **Moderate impact, needs improvement** |
+
+🔹 **COVID-19 Impact on Key Measures**  
+| Measure | Avg. Change (Post-COVID) |
+|---------|---------------------------|
+| 📉 Communication with Nurses | **-2.5%** |
+| 📉 Responsiveness of Staff | **-3.1%** |
+| 📉 Communication About Medicines | **-3.8%** (largest drop) |
+| ✅ Quietness of Environment | **Minimal impact** |
+
+---
+
+<a id="technologies-methods"></a>
+## 5. Technologies & Methods  
+
+### 📊 Data Processing & EDA  
+- **Pandas, NumPy** – Data cleaning, transformations, and statistical analysis.  
+- **Matplotlib, Seaborn, Plotly** – Boxplots, trend visualizations, and interactive charts.  
+
+### 📈 Statistical & Predictive Modeling  
+- **Hypothesis Testing** – T-tests for pre/post COVID-19 analysis.  
+- **Variance Inflation Factor (VIF) Analysis** – Ensured no severe multicollinearity.  
+- **Regression Models (Lasso, Ridge, ElasticNet)** – Predictive modeling (R² > 0.93).  
+- **SHAP Analysis** – Explainable AI for feature importance ranking.  
+
+### 📊 Visualization & Reporting  
+- **Jupyter Notebooks** – Data exploration and final analysis.  
+- **Interactive Dashboards** – Real-time insights via Plotly.  
 
 ---
 
 <a id="use-cases"></a>
-## 6. Use Cases
+## 6. Use Cases  
 
-- **Hospital Leadership**: Target specific measures (e.g., care coordination, communication about medications) to boost patient satisfaction.  
-- **Healthcare Researchers**: Study performance trends over time for evidence-based improvements.  
-- **Policy Makers**: Identify and address regional disparities to guide funding and policies.
+📌 **For Hospital Leadership**  
+- Identify **specific measures** (e.g., Care Transition, Cleanliness) to **improve patient satisfaction scores**.  
+- Benchmark against **state/national averages** to track progress.  
+
+📌 **For Healthcare Researchers**  
+- Study **long-term performance trends** and investigate the effects of policy changes.  
+- Use SHAP analysis to **understand how different factors impact patient experience**.  
+
+📌 **For Policy Makers**  
+- Identify **regional disparities** in healthcare quality.  
+- Allocate **funding & resources** to the areas most in need.  
 
 ---
+
+## 🚀 Next Steps  
+✔️ Expand the dataset with **hospital-specific trends** (rather than just state/national data).  
+✔️ Develop **an interactive dashboard** for real-time insights.  
+✔️ Integrate **additional healthcare metrics** (e.g., staffing levels, COVID-19 case data) for deeper analysis.  
+
+---
+
+## 📌 Final Thoughts  
+This project provides a **data-driven foundation** for improving patient satisfaction and hospital performance.  
+🔹 **By leveraging statistical modeling and visualization**, we can **identify actionable strategies** to enhance healthcare quality.  
+
+🚀 **Check out the notebook & dashboard to explore more insights!**
